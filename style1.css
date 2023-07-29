@@ -1,0 +1,64 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+#hidden{
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    height: 0;
+    background-color: aquamarine;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    >span{
+        font-size: 30px;
+        padding: 20px;
+    }
+}
+
+#button{
+    display: flex;
+    align-items: center;
+    margin-top: 100px;
+    justify-content: center;
+    height: 70vh;
+
+    > span{
+        font: 500;
+        font-size: 30px;
+        text-align: center;
+        width: 220px;
+        padding: 5px;
+        margin: 10px;
+        border: 1px solid rgb(90, 179, 247);
+        border-radius: 4px;
+        background-color: rgb(90, 179, 247);
+    }
+    >span:hover{
+        cursor: pointer;
+    }
+}
+
+#top-draw:hover~.top{
+    top: 200px;
+
+}
+
+#bottom-draw:hover~.bottom{
+    top: 200px;
+
+}
+
+#left-draw:hover~.left{
+    top: 200px;
+
+}
+
+#right-draw:hover~.right{
+    top: 200px;
+
+}
