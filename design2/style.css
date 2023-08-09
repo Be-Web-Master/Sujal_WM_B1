@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: rgb(158, 120, 193);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 20px 70px;
+    width: 100%;
+
+    > .navbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: #dede90;
+        padding: 10px;
+        margin: 10px;
+
+        > li {
+            list-style-type: none;
+
+            > a {
+                text-decoration: none;
+                gap: 40px;
+                font-size: 20px;
+                margin: 10px;
+            }
+        }
+    }
+}
+
+input,
+textarea {
+    padding: 20px;
+    margin:10px 20px;
+    font-size: 20px;
+    width: 80vh;
+    border-radius: 10px;
+    border: 1px solid #f78b8b;
+}
+textarea{
+    height: 10vh;
+}
+.form-container{
+    margin: 0 auto;
+    width: 90vh;
+    margin-top: 50px;
+    background-color: #f78b8b;
+    border-radius: 10px;
+    /* height: 80vh; */
+   > h2{
+        font-weight: 700;
+        font-size: 40px;
+        text-align: center;
+        padding: 30px 10px;
+    }
+
+   > .input-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    > .name {
+        display: flex;
+        width: 84vh;
+    }
+    > button {
+        margin-top: 20px;
+        margin-bottom: 40px;
+        padding: 30px;
+        font-size: 25px;
+        border-radius: 10px;
+        width: 40vh;
+        border: 1px transparent;
+        cursor: pointer;
+        background:#fff;
+    }
+   }
+}
+.btn-container{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+        /* width: 90vh; */
+        margin-top: 30px;
+        border-radius: 10px;
+        align-items: center;
+    
+    
+}
+
+/* .flexible{
+    width: 90vh;
+} */
+.alink {
+    text-decoration: none;
+    text-align: center;
+    font-size: 30px;
+    padding: 20px;
+    margin: 50px;
+    background-color: #b38bf0;
+    color: #fff;
+
+}
+
+.alink1{
+    width: 90vh;
+    display: block;
+}
+
+.alink2{
+    width: 90vh;
+    display: block;
+}
+
+.logo{
+    justify-content: space-between;
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    background-color: white;
+}
+
+.footer-space{
+    display: flex;
+    justify-content: space-between;
+    background-color: #b38bf0;
+}
+@media (max-width: 950px) {
+    .name{
+        display: flex;
+        flex-direction: column;
+    }
+
+    header{
+        width: 100%;
+    }
+}
