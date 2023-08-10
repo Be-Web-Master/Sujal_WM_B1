@@ -1,0 +1,28 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+thead{
+    /* background-color: #8686da; */
+
+    > tr{
+        background-color: #8686da;
+
+        > th{
+            margin: 10px;
+            padding: 10px;
+        }
+    }
+
+
+}
+
+tbody{
+    >tr{
+        margin: 30px;
+        border: 2px solid rgb(229, 217, 217);
+    }
+
+}
