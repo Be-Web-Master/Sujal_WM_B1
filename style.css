@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(222, 172, 222);
+    display: flex;
+    justify-content: center;
+        justify-items: center;
+        align-items: center;
+}
+
+.container{
+    border: 1px solid rgb(137, 132, 132);
+    background-color: white;
+    border-radius: 5px;
+    margin: 50px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+h1{
+    font-size: 30px;
+    font-weight: 800;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+label{
+    display: block;
+    margin: 8px;
+    font-weight: 800;
+    font-size: 15px;
+}
+
+form{
+    justify-content: center;
+        justify-items: center;
+        align-items: center;
+        border-radius: 5px;
+
+    > input{
+        margin: 5px;
+        padding: 8px;
+        width: 100%;
+        border-radius: 5px;
+        font-size: 20px;
+    } 
+    
+    > select{
+        margin: 5px;
+            padding: 5px;
+            width: 100%;
+            font-size: 20px;
+            border-radius: 3px;
+    }
+
+    > .gender-btn{
+        > input[type="radio"]{
+            display: inline;
+            width: auto;
+        }
+    }
+
+    > #checkbox{
+        display: inline;
+        width: auto;
+    }
+}
+
+button{
+    padding: 10px;
+    width: 90px;
+    background-color: hsl(215, 89%, 72%);
+    border-radius: 5px;
+    border-style: none;
+    cursor: pointer;
+}
