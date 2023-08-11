@@ -1,0 +1,31 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ball{
+    margin-top: 300px;
+    margin-left: 650px;
+    width: 200px;
+    height: 200px;
+    background-color: #009dff;
+    border-radius: 50%;
+    animation: bounce 1s linear infinite ;
+}
+
+@keyframes bounce{
+    0%, 100% {
+        transform: translateX(0px);
+    }
+
+    50%{
+        transform: translateY(100px);
+    }
+}
