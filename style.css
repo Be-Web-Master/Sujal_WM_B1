@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    > button{
+        padding: 20px;
+        font-size: 20px;
+        width: 180px;
+        border-radius: 5px;
+        background-color: transparent;
+        color: #238caf;
+        border: 1px solid #238caf;
+        cursor: pointer;
+    }
+
+    > a{
+        display: none;
+        text-decoration: none;
+        color: white;
+        background-color: #238caf;
+        padding: 8px;
+        width: 65px;
+        text-align: center;
+        margin: 5px;
+        border-radius: 5px;
+    }
+
+    > button:hover + a{
+        display:block;
+    }
+}
