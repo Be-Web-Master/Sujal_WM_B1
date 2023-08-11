@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    display: block;
+    padding: 20px 40px;
+    font-size: 30px;
+    border-radius: 5px;
+    border: 1px solid #398ff3;
+    color: #398ff3;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.tooltip{
+    /* display: none; */
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 5px;
+    color: white;
+    background-color: #398ff3;
+    cursor: pointer;
+}
+
+.hover-content{
+    position: relative;
+}
+.arrow{
+    position: absolute;
+    bottom: -45px;
+    right: 110px;
+    padding: 5px;
+    background-color: #398ff3;
+    width: 15px;
+    height: 15px;
+    rotate: 45deg;
+}
+
+.btn:hover + .tooltip{
+    display: block;
+}
