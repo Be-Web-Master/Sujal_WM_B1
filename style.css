@@ -23,31 +23,38 @@ button{
     background-color: transparent;
     cursor: pointer;
 }
+.hover-content {
+    position: relative;
+    display: none;
+}
 
 .tooltip{
-    /* display: none; */
+    position: absolute;
     padding: 10px 20px;
     font-size: 20px;
     border-radius: 5px;
     color: white;
     background-color: #398ff3;
-    cursor: pointer;
+    left: 55px;
+    top: 10px;
 }
 
-.hover-content{
-    position: relative;
-}
 .arrow{
     position: absolute;
-    bottom: -45px;
-    right: 110px;
+    top: 5px;
+    left: 100px;
     padding: 5px;
-    background-color: #398ff3;
+    background-color: #8dbff9;
     width: 15px;
     height: 15px;
     rotate: 45deg;
 }
 
-.btn:hover + .tooltip{
+button:hover{
+    background-color: #91c2fa;
+    opacity: 95%;
+}
+
+.btn:hover + .hover-content{
     display: block;
 }
