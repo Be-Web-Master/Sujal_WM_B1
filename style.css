@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url(https://source.unsplash.com/random/900x700/?fruit);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+    > .content-container{
+        width: 60%;
+        overflow: hidden;
+
+        > .head-content{
+            > h1{
+                font-size: 90px;
+                font-weight: 900;
+                color: white;
+            }
+            > h2{
+                font-size: 50px;
+                font-weight: 500;
+                color: white;
+            }
+            > p{
+                font-size: 20px;
+                margin: 15px;
+            }
+
+
+        }
+
+    > .card-container{
+        display: flex;
+        color: black;
+
+        > .cards{
+            width: 30vw;
+            height: 100%;
+            background-color: aliceblue;
+            margin: 30px;
+            padding: 20px;
+            text-align: start;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 2px rgb(255, 255, 255, 0.5);
+            > h3{
+                white-space: nowrap;
+
+                overflow: hidden;
+                text-overflow: ellipsis;
+                margin-bottom: 10px;
+
+                font-size: 25px;
+                font-weight: 800;
+            }
+            >p{
+                font-size: 15px;
+            }
+        }
+    }
+}
+}
+
