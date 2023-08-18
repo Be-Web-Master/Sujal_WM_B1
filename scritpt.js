@@ -1,7 +1,7 @@
 const studentsMarks = [
     [80, 70, 55],
     [45, 90, 75],
-    [70, 0, 60]
+    [70, 60, 60]
 ];
 
 function calculateQuizResults(studentsMarks) {
