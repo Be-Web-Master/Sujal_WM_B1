@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+form{
+    margin: 25px;
+}
+
+label{
+    display: block;
+}
+
+.gender-container{
+    display: flex;
+    margin: 5px;
+    margin-left: 0;
+}
