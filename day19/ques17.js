@@ -7,7 +7,7 @@ function numberSum(num) {
         num /= 10;
         sum += num**2;
     }
-    return sum;
+    return Math.round(sum);
 }
 
 console.log(numberSum(123));  //152.81818181818184
