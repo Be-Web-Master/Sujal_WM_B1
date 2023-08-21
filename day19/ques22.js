@@ -10,11 +10,11 @@ function charCount(str) {
         let value = 1;
         let char = str.charCodeAt(i);
         // console.log({ char });
-        let index = char - 65;
+        let index = char. - 65;
         // console.log({ index });
         arr[index] = arr[index] + value;
         // console.log({ arr });
-        console.log(str.charAt(i), arr[index]);
+        console.log(i, arr);
     }
     
 }
