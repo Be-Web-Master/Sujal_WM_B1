@@ -39,7 +39,7 @@ function updateUi(arr) {
 }
 
 function searchArr(arr,searchVal) {
-    clearUI();
+    clearUI()
     arr.forEach((num) => {
         if (num.includes(searchVal)) addElement(num);
     });
