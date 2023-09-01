@@ -1,27 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 1</title>
-    <link rel="stylesheet" href="style.css">
+    <title>JS Project Table UI</title>
 </head>
+
 <body>
-    <div id="container">
-        <div id="tableContainer">
-            <table>
-                <thead >
-                    <tr id="addColumnIn"></tr>
-                </thead>
-                <tbody id="addRowIn">
-                    <tr id="rowData"></tr>
-                </tbody>
-            </table>
-            <button id="columnBtn">Add column</button>
-        </div>
-        <button id="rowBtn">Add row</button>
-        <button id="clearBtn">Clear</button>
-    </div>
+    <button type="button" id="addColumnButton">Add Column</button>
+    <button type="button" id="addRowButton">Add Row</button>
+    <button type="button" id="clearLocalData">Clear All</button>
+    <form id="sortForm">
+        <select name="columnsDropdown" class="columnsDropDown">
+        </select>
+
+        <input type="radio" value="ascending" name="sort" id="ascending">
+        <label for="sort">Ascending</label>
+
+        <input type="radio" value="descending" name="sort" id="descending">
+        <label for="sort">Descending</label>
+        <button id="sortButton">Sort</button>
+    </form>
+
+    <table id="table">
+        <thead id="thead"></thead>
+        <tbody id="tbody"></tbody>
+    </table>
+
     <script src="script.js"></script>
 </body>
+
 </html>
