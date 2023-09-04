@@ -8,6 +8,8 @@ const addColumnButton = document.getElementById("addColumnButton");
 const clearLocalData = document.getElementById("clearLocalData");
 const sortForm = document.getElementById("sortForm");
 const selectOption = document.querySelector(".columnsDropDown");
+const draggable = document.querySelector(".draggable");
+console.log(draggable);
 
 let tableState = {
     header: [],
@@ -69,10 +71,14 @@ function clearTableUI() {
 
 function getCellTextAreaElement(cellValue, cellAddress) {
     const textAreaElement = document.createElement("textarea");
+    textAreaElement.value = cellValue;
     textAreaElement.setAttribute("id", cellAddress);
     textAreaElement.setAttribute("placeholder", `Cell ${cellAddress}`);
     textAreaElement.setAttribute("type", "text");
-    textAreaElement.value = cellValue;
+    textAreaElement.setAttribute("draggable", "true")
+    textAreaElement.ondragstart = function (event) {
+        event.dataTransfer.setData("text/plain", event.target.id);
+    }
     return textAreaElement;
 }
 
@@ -80,27 +86,31 @@ function getColumnNameInputElement(columnName, cellAddress) {
     const columnNameInputElement = document.createElement("input");
     columnNameInputElement.value = columnName;
     columnNameInputElement.setAttribute("id", cellAddress);
+    columnNameInputElement.draggable = true;
+    columnNameInputElement.ondragstart = function (event){
+        event.dataTransfer.setData("text/plain", event.target.id);
+    }
     return columnNameInputElement;
 }
 
-// function getColumnSearchInputElement(columnNumber) {
-//   const columnSearchInputElement = document.createElement("input");
-//   columnSearchInputElement.setAttribute("id", `search-${columnNumber}`);
-//   columnSearchInputElement.setAttribute("type", "search");
-//   columnSearchInputElement.onkeyup = function columnSearch(e) {
-//     const searchInput = e.target.value;
-//     const tableDataFromLocalStorage = JSON.parse(
-//       localStorage.getItem(LOCAL_STORAGE_TABLE_KEY)
-//     );
-//     tableState.body = tableDataFromLocalStorage.body.filter((rowObject) => {
-//       return rowObject.columnDetails[columnNumber].cellValue
-//         .toLowerCase()
-//         .includes(searchInput.toLowerCase());
-//     });
-//     updateTableBodyData(tableState.body);
-//   };
-//   return columnSearchInputElement;
-// }
+function getColumnSearchInputElement(columnNumber) {
+  const columnSearchInputElement = document.createElement("input");
+  columnSearchInputElement.setAttribute("id", `search-${columnNumber}`);
+  columnSearchInputElement.setAttribute("type", "search");
+  columnSearchInputElement.onkeyup = function columnSearch(e) {
+    const searchInput = e.target.value;
+    const tableDataFromLocalStorage = JSON.parse(
+      localStorage.getItem(LOCAL_STORAGE_TABLE_KEY)
+    );
+    tableState.body = tableDataFromLocalStorage.body.filter((rowObject) => {
+      return rowObject.columnDetails[columnNumber].cellValue
+        .toLowerCase()
+        .includes(searchInput.toLowerCase());
+    });
+    updateTableBodyData(tableState.body);
+  };
+  return columnSearchInputElement;
+}
 
 function createTableUIFromLocalStorage() {
     clearTableUI();
@@ -109,17 +119,27 @@ function createTableUIFromLocalStorage() {
     tableState.header.forEach((element) => {
         createSortForm(element);
         const columnElement = document.createElement(element.elementType);
-
+        columnElement.ondragover = function(event){
+            event.preventDefault();
+        }
+        columnElement.ondrop = function (event){
+            const droppedElemIdx = event.dataTransfer.getData('text/plain').split('-')[1];
+            const dropZoneIdx = event.target.id.split('-')[1];
+            let swapValue = tableState.header[droppedElemIdx].columnName;
+            tableState.header[droppedElemIdx].columnName = tableState.header[dropZoneIdx].columnName;
+            tableState.header[dropZoneIdx].columnName = swapValue;
+            updateTableDataInLocalStorage(tableState);
+        }
         const columnNameInputElement = getColumnNameInputElement(
             element.columnName,
             `0-${element.columnNumber}`
         );
         columnElement.append(columnNameInputElement);
 
-        // const columnSearchInputElement = getColumnSearchInputElement(
-        //   element.columnNumber
-        // );
-        // columnElement.append(columnSearchInputElement);
+        const columnSearchInputElement = getColumnSearchInputElement(
+          element.columnNumber
+        );
+        columnElement.append(columnSearchInputElement);
 
         tHead.append(columnElement);
     });
@@ -128,6 +148,17 @@ function createTableUIFromLocalStorage() {
         const rowElement = document.createElement(element.elementType);
         element.columnDetails.forEach((cellDetail) => {
             const tdElement = document.createElement(cellDetail.elementType);
+            tdElement.ondragover = function (event) {
+                event.preventDefault();
+            }
+            tdElement.ondrop = function (event) {
+                const [droppedRowIdx, droppedColIdx] = event.dataTransfer.getData('text/plain').split('-');
+                const [dropZoneRowIdx, dropZoneColIdx] = event.target.id.split('-');
+                let swapValue = tableState.body[droppedRowIdx].columnDetails[droppedColIdx].cellValue;
+                tableState.body[droppedRowIdx].columnDetails[droppedColIdx].cellValue = tableState.body[dropZoneRowIdx].columnDetails[dropZoneColIdx].cellValue;
+                tableState.body[dropZoneRowIdx].columnDetails[dropZoneColIdx].cellValue = swapValue;
+                updateTableDataInLocalStorage(tableState);
+            }
             const textAreaElement = getCellTextAreaElement(
                 cellDetail.cellValue,
                 `${cellDetail.rowNumber}-${cellDetail.columnNumber}`
@@ -208,7 +239,8 @@ function sortTableByColumn(event) {
         ) {
             if (sortingOrder === "ascending") return 1;
             else return -1;
-        } else {
+        } 
+        else {
             if (sortingOrder === "ascending") return -1;
             else return 1;
         }
@@ -232,4 +264,13 @@ function updateTableBodyData(tableBodyData) {
         });
         tBody.append(rowElement);
     });
+}
+
+
+function downloadCSV() {
+    const csvFile = new Blob([tableState.header], { type: "text/csv" });
+    const downloadLink = document.createElement("a");
+    downloadLink.download = "table.csv";
+    downloadLink.href = window.URL.createObjectURL(csvFile);
+    downloadLink.click();
 }
