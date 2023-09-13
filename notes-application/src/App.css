@@ -1,0 +1,42 @@
+
+.App{
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  background-color: #717172;
+  margin: 20px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+
+}
+.container{
+  display: flex;
+  margin: 20px;
+  width: 100vw;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  background-color: #717172;
+  margin: 20px;
+  min-width: 100px;
+  border-radius: 10px;
+}
+
+input,textarea,button{
+  border-style: none;
+  font-size: 15px;
+  padding: 10px;
+}
+
