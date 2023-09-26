@@ -4,12 +4,23 @@
 
 const arr = [1, 1, 1, 2, 2, 3, 4, 5, 6, 6, 5]
 
+// function removeDublicates(arr) {
+//     const mySet = new Set();
+//     arr.forEach(element => {
+//         mySet.add(element);
+//     });
+//     return mySet;
+// }
+
 function removeDublicates(arr) {
-    const mySet = new Set();
-    arr.forEach(element => {
-        mySet.add(element);
-    });
-    return mySet;
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length; j++) {
+           if(i!==j && arr[i]===arr[j]) i++;
+            
+        }
+        
+    }
 }
 
-console.log(removeDublicates(arr));
+
+// console.log(removeDublicates(arr));
