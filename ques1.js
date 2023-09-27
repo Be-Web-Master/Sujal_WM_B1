@@ -8,9 +8,15 @@ const string = "WebMaster";
 function toggleEachCharacter(string) {
     const newString = "";
     for (let i = 0; i < string.length; i++) {
-        if((string.charAt(i)>65) && (string.charAt(i)<91))newString += string.charAt()
-        
+        if((string.charAt(i)>64) && (string.charAt(i)<91)){
+            newString += string.charAt(i).toLowerCase();
+        }
+        else if((string.charAt(i)>96) && (string.charAt(i)<127)){
+            newString += string.charAt(i).toUpperCase()
+        }
     }
+
+    return newString
 }
 
-// toggleEachCharacter(string)
+console.log(toggleEachCharacter(string));
