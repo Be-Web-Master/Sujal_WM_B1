@@ -18,7 +18,6 @@ function getFrequency(string) {
     string = string.toLowerCase();
     const map = new Map();
     for (let i = 0; i < string.length; i++) {
-        // console.log(string.charAt(i)===);
         if(string.charCodeAt(i)!==32){
             if(map.get(string.charAt(i))) {
             map.set(string.charAt(i), (map.get(string.charAt(i)) + 1))

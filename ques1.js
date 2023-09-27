@@ -6,12 +6,12 @@
 const string = "WebMaster";
 
 function toggleEachCharacter(string) {
-    const newString = "";
+    let newString = "";
     for (let i = 0; i < string.length; i++) {
-        if((string.charAt(i)>64) && (string.charAt(i)<91)){
+        if((string.charCodeAt(i)>=65) && (string.charCodeAt(i)<=90)){
             newString += string.charAt(i).toLowerCase();
         }
-        else if((string.charAt(i)>96) && (string.charAt(i)<127)){
+        else if((string.charCodeAt(i)>=97) && (string.charCodeAt(i)<=122)){
             newString += string.charAt(i).toUpperCase()
         }
     }
