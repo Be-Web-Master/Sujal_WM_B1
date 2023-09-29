@@ -4,7 +4,7 @@
 // output - 11 - 11 is dublicate and the biggest number among all dublicates
 
 
-const arr = [11,1,12,2,5,5,6,12,14,11]
+const arr = [11,1,12,12,5,5,6,11,14,11]
 
 function findMaxDublicate(arr){
     const map = new Map();
@@ -16,15 +16,15 @@ function findMaxDublicate(arr){
             map.set(arr[i],1)
         }
     }
-    let max = 0, num = [];
+    let max = 0, num = 0;
     for (const [key , value] of map.entries()) {
-        if(max<=value){
+        if(max<=value && num<key){
             max = value;
-            num.push(key);
+            num = key;
         }
     }
-    num.sort()
-    return num[0];
+    
+    return num;
 }
 
 console.log(findMaxDublicate(arr))
