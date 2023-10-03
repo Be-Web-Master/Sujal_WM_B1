@@ -5,6 +5,7 @@ export default function TableComp({ modal, setModal }) {
 
     const [header, setHeader] = useState([])
     const [body, setBody] = useState([])
+    
 
     function addCol(colName, elemType) {
         const newHeader = [...header, {
@@ -14,7 +15,7 @@ export default function TableComp({ modal, setModal }) {
         setHeader(newHeader);
         body.forEach((row, idx) => {
             row.cellDetails.push({
-                name: `cell-${colName ?? String.fromCharCode(header.length + 65)}-${body.length}`,
+                name: `cell-${colName ?? String.fromCharCode(header.length + 65)}-${idx+1}`,
                 elemType: elemType
             })
         })
@@ -22,10 +23,10 @@ export default function TableComp({ modal, setModal }) {
 
     const addRow = () => {
         if (header.length < 1) {
-            setModal((modal)=>{
-                return {...modal, open : true, type: "alert"}
+            setModal((modal) => {
+                return { ...modal, open: true, type: "alert" }
             })
-            
+
         }
 
         else {
@@ -33,7 +34,7 @@ export default function TableComp({ modal, setModal }) {
                 cellDetails:
                     header.map((elem) => {
                         return ({
-                            name: `cell-${elem.name}-${body.length}`,
+                            name: `cell-${elem.name}-${body.length+1}`,
                             elemType: elem.elemType
                         })
                     })
@@ -48,8 +49,8 @@ export default function TableComp({ modal, setModal }) {
         addCol(e.target.children[0].value, e.target.children[1].value);
         e.target.children[0].value = "";
         e.target.children[1].value = "";
-        setModal((modal)=>{
-            return {...modal, open: false}
+        setModal((modal) => {
+            return { ...modal, open: false }
         });
     }
 
@@ -62,12 +63,13 @@ export default function TableComp({ modal, setModal }) {
             }}>Add Column</button>
             <button onClick={addRow}>Add Row</button>
             {modal.open &&
-                <ModalComp submitForm={submitForm} setModal={setModal} modal={modal}/>
+                <ModalComp submitForm={submitForm} setModal={setModal} modal={modal} />
             }
             <table className="table-container">
                 <thead>
                     {
                         header.map((col) => {
+                            console.log({col});
                             return (
                                 <th>
                                     <span>
@@ -108,8 +110,8 @@ export default function TableComp({ modal, setModal }) {
 function InputComp({ data }) {
     return (
         data.elemType === "TextArea" ?
-            <textarea placeholder={data.name} value={data.name} />
-            : <input placeholder={data.name} value={data.name} />
+            <textarea placeholder={data.name} />
+            : <input placeholder={data.name} />
     )
 }
 
@@ -135,17 +137,17 @@ function ModalComp({ setModal, submitForm, modal }) {
         createPortal(
             <div className="modal-div">
                 <div className="closeBtn">
-                    <button autoFocus type="button" onClick={() =>{
-                        setModal({...modal, open: false})
+                    <button autoFocus type="button" onClick={() => {
+                        setModal({ ...modal, open: false })
                     }}>
                         ✖
                     </button>
                 </div>
-            {
-                modal?.type ==="form" ?
-                    <FormComp submitForm={submitForm} /> :
-                    <Alert/>
-            }
+                {
+                    modal?.type === "form" ?
+                        <FormComp submitForm={submitForm} /> :
+                        <Alert />
+                }
             </div>,
             document.body
         )
@@ -153,7 +155,7 @@ function ModalComp({ setModal, submitForm, modal }) {
 }
 
 function Alert() {
-    return(
+    return (
         <div className="alert-box">Add a Column before adding a row!!!</div>
     )
 }

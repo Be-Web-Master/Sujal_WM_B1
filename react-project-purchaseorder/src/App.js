@@ -1,31 +1,23 @@
-import { useState, createRef, useEffect } from 'react';
-import './App.css';
-import TableComp from './table';
-// import ExpiryDateComponent from './expiryDateComponent';
-// import TableComponent from './tableComponent';
-// import { SlabComponent } from './slab';
-
+import { useState, createRef, useEffect, useRef } from "react";
+import "./App.css";
+import { TableCompFromApi } from "./components/table/tableFromApi";
 
 function App() {
-  const [modal, setModal] = useState({ open: false, type: '' });
-  const divApp = createRef();
+  const [modal, setModal] = useState(false);
+  // const modal
+  const divApp = useRef();
   useEffect(() => {
-    modal.open ? divApp.current.style.opacity = "0.5" : divApp.current.style.opacity = "1"
-  })
+    // window.scrollTo(0, 0);
+    window.scrollTo(window.scrollX, window.scrollY);
+    // divApp.current.scroll = "disable";
+    // divApp.current.scrollIntoView();
+    // modal.open ? divApp.current.style.opacity = "0.7" : divApp.current.style.opacity = "1"
+  },[modal]);
   return (
-    <div ref={divApp} className='App'>
-      <header className="App-header">
-        <TableComp setModal={setModal} modal={modal} />
-      </header>
+    <div ref={divApp} className={`App ${modal && "block-app"}`}>
+      <TableCompFromApi openModal={modal} setOpenModal={setModal} />
     </div>
   );
 }
 
 export default App;
-
-
-// const [table, setTable ] = useState([]);
-// {/* <ExpiryDateComponent setTable={setTable} table={table}/>
-// <TableComponent table={table}/> */}
-// {/* <SlabComponent/> */}
-

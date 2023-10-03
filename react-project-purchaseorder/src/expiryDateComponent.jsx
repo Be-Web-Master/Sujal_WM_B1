@@ -20,14 +20,14 @@ function ExpiryDateComponent({ setTable, table }) {
             e.target.children[1].value = "";
         }}>
             <input onSelect={(e) => {
-              table.length > 0 &&  table.forEach((elem) => {
+                table.length > 0 && table.forEach((elem) => {
                     if (e.target.value === elem.date) {
-                      setDisable(true);
+                        setDisable(true);
                         return;
                     }
                     else setDisable(false);
                 })
-            }}  type="date" />
+            }} type="date" />
             <input disabled={disable} type="number" />
             <button> + </button>
         </form>
