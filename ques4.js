@@ -7,15 +7,11 @@ const arr = [{ name:"cde", age:12 }, { name:"abc", age:21 }, { name:"aaa", age:3
 
 
 function sortWithName(arr) {
-    const temp = [], result = [];
-    for(const elem of arr){
-        temp.push(elem.name);
-    }
-    temp.sort();
-    console.log(temp);
-    // for (let i = 0; i < temp; i++) {
-    //     res
-    // }
+   arr.sort((obj1,obj2)=>{
+        if( obj1.name>obj2.name) return 1;
+        else return -1;
+   })
+   return arr;
 }
 
-sortWithName(arr)
+console.log(sortWithName(arr));
