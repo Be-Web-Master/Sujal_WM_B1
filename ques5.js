@@ -8,7 +8,12 @@ const arr = [10,8,5,2,11,15,13,19,12];
 function swapNumbers(arr){
     let len = arr.length;
     if(arr.length%2!==0) len = arr.length-1;
-    for (let i = 0; i < len; i++) {
-        
+    for (let i = 0; i < len; i+=2) {
+        const temp = arr[i];
+            arr[i] = arr[i+1];
+            arr[i+1]= temp;
     }
+    return arr;
 }
+
+console.log(swapNumbers(arr));
