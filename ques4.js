@@ -19,25 +19,20 @@ function removeSubstring(string){
             map.set(string.charAt(i), 1);
         }
     }
-    console.log(map);
-    let newStr = "", count = 3, idx = 0;
+    let newStr = "", count = 3, idx = 0, flag = false;
     for (const [key, value] of map) {
-        // console.log(key,value);
         if(value >= 3) newStr+=key;
     }
-    console.log(newStr);
+    
     for (let i = 0; i < string.length; i++) {
-        if(string.charAt(i)===newStr.charAt(idx)){
-            
+      if (string.charAt(i) === newStr.charAt(idx)) {
+        for (let j = 0; j < newStr.length; j++) {
+          if (string.charAt(j + i) === newStr.charAt(j)) flag = true;
+          else flag = false;
         }
+        if (flag) {};
+      }
     }
-    // for (let i = 1; i < string.length; i++) {
-    //     if(string.charAt(i-1)!==string.charAt(i)){
-    //         for (let j = 0; j < array.length; j++) {
-    //             if(i!==j && string.charAt(i)===string.charAt(j))
-    //         }
-    //     }
-    // }
 }
 
 console.log(removeSubstring(string));
