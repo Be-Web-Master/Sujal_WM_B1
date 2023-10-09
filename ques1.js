@@ -10,18 +10,16 @@ const substring = "ab"
 function getStringsBySubstring(arr, substring){
     const result = [];
     arr.forEach(str => {
-        let newStr = "";
         let flag = false;
         for (let i = 0; i < str.length; i++) {
             if(str.charAt(i)===substring.charAt(0)) {
                 for (let j = 0; j < substring.length; j++) {
-                    console.log(str.charAt(i),substring.charAt(j));
-                    if(str.charAt(i)===substring.charAt(j)) flag = true;
+                    if(str.charAt(j+i)===substring.charAt(j)) flag = true;
                     else flag = false;
                 }
+            if(flag) result.push(str)
             }
         }
-    if(flag) result.push(str)
     });
     return result;
 }

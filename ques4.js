@@ -10,12 +10,35 @@
 const string = "aabbaa";
 
 function removeSubstring(string){
-    for (let i = 1; i < string.length; i++) {
-        if(string.charAt(i-1)!==string.charAt(i)){
-            for (let j = 0; j < array.length; j++) {
-                if(i!==j && string.charAt(i)===string.charAt(j))
-            }
+    const map = new Map();
+    for (let i = 0; i < string.length; i++) {
+        if(map.get(string.charAt(i))) {
+            map.set(string.charAt(i), map.get(string.charAt(i)) + 1);
+        }
+        else {
+            map.set(string.charAt(i), 1);
         }
     }
+    console.log(map);
+    let newStr = "", count = 3, idx = 0;
+    for (const [key, value] of map) {
+        // console.log(key,value);
+        if(value >= 3) newStr+=key;
+    }
+    console.log(newStr);
+    for (let i = 0; i < string.length; i++) {
+        if(string.charAt(i)===newStr.charAt(idx)){
+            
+        }
+    }
+    // for (let i = 1; i < string.length; i++) {
+    //     if(string.charAt(i-1)!==string.charAt(i)){
+    //         for (let j = 0; j < array.length; j++) {
+    //             if(i!==j && string.charAt(i)===string.charAt(j))
+    //         }
+    //     }
+    // }
 }
+
+console.log(removeSubstring(string));
 
