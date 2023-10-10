@@ -3,7 +3,7 @@
 // output - [1,2,3,4,5,6]
 // function flatArray(arr) - this function will return flatten array
 
-const arr = [ [1, 2], [3,4], [5,6] ];
+const arr = [ [1, 2], [3,4], [7,6] ];
 
 
 function flatArray(arr){
