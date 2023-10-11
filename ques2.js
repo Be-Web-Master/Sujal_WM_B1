@@ -3,7 +3,7 @@
 function mapArr(arr,callBack=()=>{}) {
     const resultArr = []
     for (let i = 0; i < arr.length; i++) {
-        resultArr.push(callBack(arr[i]));
+        resultArr.push(callBack(arr[i],i,arr));
     }
     return resultArr;
 }

@@ -4,13 +4,14 @@
 function filterArr(arr, callBack = () => {}) {
   const resultArr = [];
   for (let i = 0; i < arr.length; i++) {
-    const temp = callBack(arr[i]);
+    const temp = callBack(arr[i],i,arr);
    if(temp!==undefined && temp!== null) resultArr.push(temp);
   }
   return resultArr;
 }
 
 function callBack(elem, idx, arr) {
+    return 100;
   if(elem>3) return elem;
 }
 
