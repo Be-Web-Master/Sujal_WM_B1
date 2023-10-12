@@ -17,8 +17,8 @@ function getDublicates(arr){
         }
     }
     let i = 0;
-    for (const [key] of Object.entries(obj)) {
-        result[i++] = Number(key);
+    for (const [key,value] of Object.entries(obj)) {
+       if(value>1) result[i++] = Number(key);
     }
     return result;
 }
