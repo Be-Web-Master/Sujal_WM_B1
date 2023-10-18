@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  width: 100vw;
+}
+
+.header{
+  display: flex;
+  width: 100vw;
+  height: 280px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  border: 10px solid rgb(205, 194, 194);
+  background-color: rgb(205, 194, 194);
+  color: black;
+  width: 300px;
+  border-radius: 15px;
+}
+
+input, button, textarea {
+  width: 270px;
+  font-size: 20px;
+  padding: 10px;
+  border-style: none;
+  background-color: transparent;
+  outline: none;
+}
+
+button{
+  cursor: pointer;
+}
+
+#searchInput{
+  background-color: rgb(205, 194, 194);
+  width: 270px;
+  height: 50px;
+  border-radius: 50px;
+  text-align: center;
+  padding: 30px;
+}
+
+#cardBoxId {
+  display: flex;
+  flex-wrap: wrap;
+  width: 95vw;
+  color: black;
+  background-color: #3b3d41;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.card {
+  background-color: rgb(205, 194, 194);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 10px;
+  font-size: 30px;
+  width: 20vw;
+  height:fit-content;
+  overflow: hidden;
+}
+
+.content{ 
+  margin: 5px;
+  padding: 10px;
+  height:auto;
+  overflow: hidden;
+}
+
+.description{
+  min-height: 50px;
+}
+
+.title{
+  min-height: 30px;
+}
+
+
+span {
+  font-size: 15px;
+  background-color: rgba(52, 51, 51, 0.826);
+  color: white;
+  border-radius: 15px;
+  padding: 5px 15px 6px 15px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  margin: 5px;
+  cursor: pointer;
+}
+
+h4{
+  border-bottom: 1px solid gray;
+  margin: 10px 0px 10px 0;
+}
+
+h3{
+  text-align: center;
+}
+
+span:last-child {
+  display: none;
+}
