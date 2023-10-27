@@ -15,10 +15,8 @@
 // Output: false
 
 function isCapitalRight(word) {
-    const temp1 = word;
-    if (temp1.toUpperCase() === word) return true;
-    const temp2 = word;
-    if (temp2.toLowerCase() === word) return true;
+    if (word.toUpperCase() === word) return true;
+    if (word.toLowerCase() === word) return true;
     const str = word.charAt(0).toUpperCase() + word.toLowerCase().substring(1);
     if(str===word) return true;
     return false;
